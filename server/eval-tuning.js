@@ -1,145 +1,82 @@
 /**
- * eval-tuning.js — 参数调优脚本
+ * eval-tuning.js — sweep chunkSize/overlap over the OpenSearch hybrid pipeline
+ * and report retrieval hit rate per config. Each config is indexed under its own
+ * docId, evaluated, then cleaned up. Retrieval-only (no GPT) → cheap.
  *
- * 自动测试多组 chunkSize / chunkOverlap 组合，
- * 找到 Hit Rate 最高的配置。
- *
- * 用法：
- *   node eval-tuning.js
- *   node eval-tuning.js ./uploads/other.pdf
- *
- * 注意：每组配置都会重新做一次 embedding，大约 3-6 组配置总费用 < $0.05
+ * Usage: node eval-tuning.js [./uploads/your.pdf]
  */
-
-import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { OpenAIEmbeddings } from "@langchain/openai";
-import { MemoryVectorStore } from "@langchain/classic/vectorstores/memory";
-import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { readFileSync, writeFileSync } from "fs";
 import dotenv from "dotenv";
+import { ensureIndex, hybridSearch, ingestChunks, client } from "./opensearch.js";
+import { loadAndSplit } from "./ingest.js";
 
 dotenv.config();
 
-const TOP_K = 3;
+const TOP_K = Number(process.env.TOP_K || 5);
+const INDEX = process.env.OPENSEARCH_INDEX || "rag-documents";
 const DEFAULT_PDF = "./uploads/Personal_Statement_Yiyuan_Miao_pdf.pdf";
 
-// ============================================================
-// 要测试的参数组合 —— 按需增减
-// ============================================================
 const CONFIGS = [
   { chunkSize: 300, chunkOverlap: 0 },
-  { chunkSize: 300, chunkOverlap: 50 },
-  { chunkSize: 500, chunkOverlap: 0 }, // 你当前的配置
   { chunkSize: 500, chunkOverlap: 50 },
-  { chunkSize: 500, chunkOverlap: 100 },
   { chunkSize: 800, chunkOverlap: 100 },
+  { chunkSize: 1000, chunkOverlap: 100 },
   { chunkSize: 1000, chunkOverlap: 200 },
 ];
 
-async function buildStore(filePath, chunkSize, chunkOverlap) {
-  const loader = new PDFLoader(filePath);
-  const data = await loader.load();
-
-  const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize,
-    chunkOverlap,
-  });
-  const splitDocs = await splitter.splitDocuments(data);
-
-  const apiKey = process.env.OPENAI_API_KEY;
-  const embeddings = new OpenAIEmbeddings(apiKey ? { apiKey } : {});
-  const vectorStore = await MemoryVectorStore.fromDocuments(
-    splitDocs,
-    embeddings,
-  );
-
-  return { vectorStore, numChunks: splitDocs.length };
-}
-
-async function evalConfig(vectorStore, dataset) {
+async function evalConfig(dataset, docId) {
   let hits = 0;
-  const details = [];
-
+  const failedIds = [];
   for (const item of dataset) {
-    const docs = await vectorStore.similaritySearch(item.question, TOP_K);
-    const combined = docs.map((d) => d.pageContent).join(" ").toLowerCase();
-    const matched = item.expectedKeywords.filter((kw) =>
-      combined.includes(kw.toLowerCase()),
-    );
-    const isHit = matched.length > 0;
+    const retrieved = await hybridSearch(item.question, docId, TOP_K);
+    const combined = retrieved.join(" ").toLowerCase();
+    const isHit = item.expectedKeywords.some((kw) => combined.includes(kw.toLowerCase()));
     if (isHit) hits++;
-    details.push({ id: item.id, isHit });
+    else failedIds.push(item.id);
   }
-
-  return { hits, total: dataset.length, details };
+  return { hits, failedIds };
 }
 
 async function main() {
   const filePath = process.argv[2] || DEFAULT_PDF;
   const dataset = JSON.parse(readFileSync("./golden-dataset.json", "utf-8"));
+  await ensureIndex();
 
-  console.log(`\n📋 Golden Dataset: ${dataset.length} questions`);
-  console.log(`📄 PDF: ${filePath}`);
-  console.log(`🔍 Top-K: ${TOP_K}`);
-  console.log(`⚙️  Testing ${CONFIGS.length} configurations...\n`);
-  console.log(
-    "─".repeat(65),
-  );
-  console.log(
-    "  chunkSize  overlap  chunks   hits   hitRate",
-  );
-  console.log(
-    "─".repeat(65),
-  );
+  console.log(`📄 ${filePath}  |  ${dataset.length} questions  |  Top-K=${TOP_K}\n`);
+  console.log("─".repeat(55));
+  console.log("  chunkSize  overlap  chunks   hits   hitRate");
+  console.log("─".repeat(55));
 
   const results = [];
-
   for (const cfg of CONFIGS) {
-    const { vectorStore, numChunks } = await buildStore(
-      filePath,
-      cfg.chunkSize,
-      cfg.chunkOverlap,
+    const docId = `tune-${cfg.chunkSize}-${cfg.chunkOverlap}`;
+    await client.deleteByQuery(
+      { index: INDEX, refresh: true, body: { query: { term: { docId } } } },
+      { ignore: [404] },
     );
-    const evalResult = await evalConfig(vectorStore, dataset);
-    const hitRate = ((evalResult.hits / evalResult.total) * 100).toFixed(1);
+    const chunks = await loadAndSplit(filePath, cfg.chunkSize, cfg.chunkOverlap);
+    await ingestChunks(docId, chunks);
 
-    results.push({
-      ...cfg,
-      numChunks,
-      hits: evalResult.hits,
-      total: evalResult.total,
-      hitRate: parseFloat(hitRate),
-      failedIds: evalResult.details
-        .filter((d) => !d.isHit)
-        .map((d) => d.id),
-    });
+    const { hits, failedIds } = await evalConfig(dataset, docId);
+    const hitRate = parseFloat(((hits / dataset.length) * 100).toFixed(1));
+    results.push({ ...cfg, numChunks: chunks.length, hits, hitRate, failedIds });
+    console.log(`  ${String(cfg.chunkSize).padStart(9)}  ${String(cfg.chunkOverlap).padStart(7)}  ${String(chunks.length).padStart(6)}   ${String(hits).padStart(4)}   ${hitRate}%`);
 
-    console.log(
-      `  ${String(cfg.chunkSize).padStart(9)}  ${String(cfg.chunkOverlap).padStart(7)}  ${String(numChunks).padStart(6)}   ${String(evalResult.hits).padStart(4)}   ${hitRate}%`,
+    // clean up this config's docs
+    await client.deleteByQuery(
+      { index: INDEX, refresh: true, body: { query: { term: { docId } } } },
+      { ignore: [404] },
     );
   }
+  console.log("─".repeat(55));
 
-  console.log("─".repeat(65));
-
-  // 找最优
   const best = results.reduce((a, b) => (a.hitRate >= b.hitRate ? a : b));
-  console.log(
-    `\n🏆 Best config: chunkSize=${best.chunkSize}, overlap=${best.chunkOverlap} → ${best.hitRate}%`,
-  );
-
-  if (best.failedIds.length > 0) {
-    console.log(`   Still missing: Q${best.failedIds.join(", Q")}`);
-  }
-
-  writeFileSync(
-    "./eval-tuning-results.json",
-    JSON.stringify(results, null, 2),
-    "utf-8",
-  );
-  console.log("\n📁 Results saved to ./eval-tuning-results.json\n");
+  console.log(`\n🏆 Best: chunkSize=${best.chunkSize}, overlap=${best.chunkOverlap} → ${best.hitRate}%`);
+  writeFileSync("./eval-tuning-results.json", JSON.stringify(results, null, 2));
+  console.log("📁 Saved ./eval-tuning-results.json");
 }
 
-main().catch((err) => {
-  console.error("💥 Error:", err.message);
+main().then(() => process.exit(0)).catch((e) => {
+  console.error("💥", e.message);
   process.exit(1);
 });
