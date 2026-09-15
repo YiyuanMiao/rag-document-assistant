@@ -25,6 +25,7 @@ const renderQAStyle = {
 const App = () => {
   const [conversation, setConversation] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [docId, setDocId] = useState(null);
   const { Header, Content } = Layout;
   const { Title } = Typography;
 
@@ -45,7 +46,7 @@ const App = () => {
         </Header>
         <Content style={{ width: "80%", margin: "auto" }}>
           <div style={pdfUploaderStyle}>
-            <PdfUploader />
+            <PdfUploader onUploaded={setDocId} />
           </div>
 
           <br />
@@ -62,6 +63,7 @@ const App = () => {
             handleResp={handleResp}
             isLoading={isLoading}
             setIsLoading={setIsLoading}
+            docId={docId}
           />
         </div>
       </Layout>

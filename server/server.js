@@ -1,93 +1,73 @@
-/*//后端测试api
-import express from "express"; //后端api
-import cors from "cors"; //允许跨域访问
-import dotenv from "dotenv"; //env文件
-import multer from "multer"; // Import multer，存储在本地的package
-import chat from "./chat.js";
-
-dotenv.config();
-
-const app = express();
-app.use(cors()); //middleware
-
-// Configure multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); //存储路径
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname); //如果不想用originalname，可以自动生成file名称，按照用户名称或者日期
-  },
-});
-
-const upload = multer({ storage: storage });
-
-const PORT = 5001;
-
-let filePath;
-
-app.post("/upload", upload.single("file"), (req, res) => {
-  // Use multer to handle file upload
-  filePath = req.file.path; // The path where the file is temporarily saved
-  res.send(filePath + " upload successfully.");
-});
-
-app.get("/chat", async (req, res) => {
-  const resp = await chat(filePath, req.query.question); // Use MCP-enhanced chat
-  res.send({
-    ragAnswer: resp.text,
-    mcpAnswer: "N/A",
-  });
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-*/
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import multer from "multer"; // Import multer
+import multer from "multer";
+import { randomUUID } from "crypto";
 import chat from "./chat.js";
 import chatMCP from "./chat-mcp.js";
+import { ensureIndex, docExists } from "./opensearch.js";
+import { ingestPdf } from "./ingest.js";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 
-// Configure multer
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
+  destination: (req, file, cb) => cb(null, "uploads/"),
+  // Prefix with a timestamp so concurrent uploads of the same filename don't clash.
+  filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`),
 });
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
-let filePath;
-
-app.post("/upload", upload.single("file"), (req, res) => {
-  // Use multer to handle file upload
-  filePath = req.file.path; // The path where the file is temporarily saved
-  res.send(filePath + " upload successfully.");
+// Upload = ingest ONCE into OpenSearch; returns a docId the client sends back on /chat.
+app.post("/upload", upload.single("file"), async (req, res) => {
+  try {
+    const docId = randomUUID();
+    const numChunks = await ingestPdf(req.file.path, docId);
+    res.send({ docId, filename: req.file.originalname, numChunks });
+  } catch (err) {
+    console.error("upload/ingest failed:", err);
+    res.status(500).send({ error: err.message });
+  }
 });
 
+// Chat = query-only. RAG over the doc's indexed chunks; web search as fallback.
 app.get("/chat", async (req, res) => {
-  const ragResp = await chat(filePath, req.query.question);
-  const mcpResp = await chatMCP(req.query.question);
+  const { question, docId } = req.query;
+  try {
+    if (!question) return res.status(400).send({ error: "question is required" });
 
-  res.send({
-    ragAnswer: ragResp.text,
-    mcpAnswer: mcpResp.text,
+    let ragAnswer = "Please upload a document first.";
+    let hits = 0;
+    if (docId && (await docExists(docId))) {
+      const ragResp = await chat(docId, question);
+      ragAnswer = ragResp.text;
+      hits = ragResp.hits;
+    }
+
+    // Web fallback only when the document yields no relevant chunks.
+    let mcpAnswer = "N/A";
+    if (hits === 0) {
+      const mcpResp = await chatMCP(question);
+      mcpAnswer = mcpResp.text;
+    }
+
+    res.send({ ragAnswer, mcpAnswer });
+  } catch (err) {
+    console.error("chat failed:", err);
+    res.status(500).send({ error: err.message });
+  }
+});
+
+// Ensure index + hybrid pipeline exist before accepting traffic.
+ensureIndex()
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+  })
+  .catch((err) => {
+    console.error("Failed to initialize OpenSearch index:", err);
+    process.exit(1);
   });
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
