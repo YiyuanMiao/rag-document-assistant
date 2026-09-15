@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "category": "basic_fact",
+    "question": "What is Yiyuan Miao's GPA at Tsinghua University?",
+    "expectedKeywords": ["3.97", "4.00"],
+    "groundTruth": "3.97/4.00"
+  },
+  {
+    "id": 2,
+    "category": "basic_fact",
+    "question": "Which university did Yiyuan go to for exchange study?",
+    "expectedKeywords": ["Cornell"],
+    "groundTruth": "Cornell University"
+  },
+  {
+    "id": 3,
+    "category": "basic_fact",
+    "question": "What is Yiyuan's undergraduate major at Tsinghua?",
+    "expectedKeywords": ["English"],
+    "groundTruth": "English major"
+  },
+  {
+    "id": 4,
+    "category": "basic_fact",
+    "question": "What company did Yiyuan intern at for data analytics?",
+    "expectedKeywords": ["DiDi"],
+    "groundTruth": "DiDi"
+  },
+  {
+    "id": 5,
+    "category": "basic_fact",
+    "question": "What was Yiyuan's class rank at Tsinghua?",
+    "expectedKeywords": ["1/35", "1 out of 35"],
+    "groundTruth": "Rank 1/35"
+  },
+  {
+    "id": 6,
+    "category": "basic_fact",
+    "question": "What is the name of Yiyuan's second internship company?",
+    "expectedKeywords": ["Deloitte"],
+    "groundTruth": "Deloitte"
+  },
+  {
+    "id": 7,
+    "category": "basic_fact",
+    "question": "What was Yiyuan's first internship company?",
+    "expectedKeywords": ["Huatai"],
+    "groundTruth": "Huatai United Securities"
+  },
+  {
+    "id": 8,
+    "category": "basic_fact",
+    "question": "What master's program is Yiyuan applying to?",
+    "expectedKeywords": ["Business Analytics"],
+    "groundTruth": "MSc Business Analytics"
+  },
+  {
+    "id": 9,
+    "category": "basic_fact",
+    "question": "Which university's program is Yiyuan applying to?",
+    "expectedKeywords": ["Hong Kong", "HKU"],
+    "groundTruth": "The University of Hong Kong (HKU)"
+  },
+  {
+    "id": 10,
+    "category": "basic_fact",
+    "question": "What year did Yiyuan participate in the Shanghai typhoon project?",
+    "expectedKeywords": ["2019"],
+    "groundTruth": "2019"
+  },
+  {
+    "id": 11,
+    "category": "cross_paragraph",
+    "question": "What statistical model did Yiyuan streamline at DiDi?",
+    "expectedKeywords": ["PSM", "Propensity Score Matching"],
+    "groundTruth": "PSM (Propensity Score Matching)"
+  },
+  {
+    "id": 12,
+    "category": "cross_paragraph",
+    "question": "What algorithms were used in the Cornell mathematical modeling contest?",
+    "expectedKeywords": ["Monte Carlo", "genetic algorithm"],
+    "groundTruth": "Monte Carlo simulation and genetic algorithms"
+  },
+  {
+    "id": 13,
+    "category": "cross_paragraph",
+    "question": "What pest was studied in the Cornell modeling project?",
+    "expectedKeywords": ["lanternfly", "SLF", "grapevine"],
+    "groundTruth": "Spotted lanternfly (SLF), a grapevine pest"
+  },
+  {
+    "id": 14,
+    "category": "cross_paragraph",
+    "question": "What courses did Yiyuan take during exchange at Cornell?",
+    "expectedKeywords": ["Microeconomics", "Econometrics", "Differential"],
+    "groundTruth": "Intermediate Microeconomics, Applied Econometrics, Ordinary Differential Equations, Mathematical Modeling, Python"
+  },
+  {
+    "id": 15,
+    "category": "cross_paragraph",
+    "question": "What minor did Yiyuan register for at Tsinghua?",
+    "expectedKeywords": ["Economics", "Finance"],
+    "groundTruth": "Economics and Finance Minor"
+  },
+  {
+    "id": 16,
+    "category": "cross_paragraph",
+    "question": "What music achievement did Yiyuan earn at Tsinghua?",
+    "expectedKeywords": ["Top 10", "Original Musicians"],
+    "groundTruth": "2022 Top 10 Campus Original Musicians of the Year"
+  },
+  {
+    "id": 17,
+    "category": "cross_paragraph",
+    "question": "What did Yiyuan do to assist government decision-making during the typhoon?",
+    "expectedKeywords": ["waterlogging", "Weibo", "distribution map"],
+    "groundTruth": "Collected data from Weibo to locate road waterlogging points, made distribution maps"
+  },
+  {
+    "id": 18,
+    "category": "cross_paragraph",
+    "question": "What programming tool did Yiyuan use in the Cornell modeling contest?",
+    "expectedKeywords": ["MATLAB"],
+    "groundTruth": "MATLAB"
+  },
+  {
+    "id": 19,
+    "category": "cross_paragraph",
+    "question": "What type of work did Yiyuan do at Deloitte?",
+    "expectedKeywords": ["audit", "tax", "accounting vouchers", "spot check"],
+    "groundTruth": "Tax and Business Advisory - spot checks on accounting vouchers, tax consultations"
+  },
+  {
+    "id": 20,
+    "category": "cross_paragraph",
+    "question": "What optimization methods were used for pest management strategy selection?",
+    "expectedKeywords": ["weighted multivariate", "genetic"],
+    "groundTruth": "Genetic algorithms and weighted multivariate optimization"
+  },
+  {
+    "id": 21,
+    "category": "comprehensive",
+    "question": "What is Yiyuan's short-term career goal after graduation?",
+    "expectedKeywords": ["business analyst", "IT industry", "Google", "Meta", "Amazon", "BCG", "Deloitte"],
+    "groundTruth": "Work as a business analyst in IT industry at companies like Google, Meta, Amazon, or consultancies like BCG, Deloitte"
+  },
+  {
+    "id": 22,
+    "category": "comprehensive",
+    "question": "What is Yiyuan's long-term career vision?",
+    "expectedKeywords": ["university-enterprise", "cooperation", "industry", "academia"],
+    "groundTruth": "Create or promote university-enterprise cooperation programs combining industry, academia and research"
+  },
+  {
+    "id": 23,
+    "category": "comprehensive",
+    "question": "What leadership roles did Yiyuan hold at Tsinghua?",
+    "expectedKeywords": ["Student Union", "Monitor", "Section Leader", "chief director"],
+    "groundTruth": "Student Union, Monitor & Art Committee, Section Leader of Student Choir, Chief Director of microfilm"
+  },
+  {
+    "id": 24,
+    "category": "comprehensive",
+    "question": "What HKU courses is Yiyuan most interested in?",
+    "expectedKeywords": ["Business Intelligence", "Decision Analytics", "Digital Experimentation", "Storytelling"],
+    "groundTruth": "Business Intelligence and Analytics, Decision Analytics, Digital Experimentation Methods, Storytelling with Data"
+  },
+  {
+    "id": 25,
+    "category": "comprehensive",
+    "question": "What kind of work did Yiyuan discover she prefers over auditing?",
+    "expectedKeywords": ["creative"],
+    "groundTruth": "Creative work"
+  }
+]

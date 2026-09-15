@@ -1,0 +1,513 @@
+{
+  "hitRate": 88,
+  "totalHits": 22,
+  "totalQuestions": 25,
+  "categoryStats": {
+    "basic_fact": {
+      "total": 10,
+      "hits": 9
+    },
+    "cross_paragraph": {
+      "total": 10,
+      "hits": 8
+    },
+    "comprehensive": {
+      "total": 5,
+      "hits": 5
+    }
+  },
+  "results": [
+    {
+      "id": 1,
+      "category": "basic_fact",
+      "question": "What is Yiyuan Miao's GPA at Tsinghua University?",
+      "groundTruth": "3.97/4.00",
+      "isHit": true,
+      "matchedKeywords": [
+        "3.97",
+        "4.00"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "basic_fact",
+      "question": "Which university did Yiyuan go to for exchange study?",
+      "groundTruth": "Cornell University",
+      "isHit": true,
+      "matchedKeywords": [
+        "Cornell"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "basic_fact",
+      "question": "What is Yiyuan's undergraduate major at Tsinghua?",
+      "groundTruth": "English major",
+      "isHit": true,
+      "matchedKeywords": [
+        "English"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "basic_fact",
+      "question": "What company did Yiyuan intern at for data analytics?",
+      "groundTruth": "DiDi",
+      "isHit": true,
+      "matchedKeywords": [
+        "DiDi"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity"
+      ]
+    },
+    {
+      "id": 5,
+      "category": "basic_fact",
+      "question": "What was Yiyuan's class rank at Tsinghua?",
+      "groundTruth": "Rank 1/35",
+      "isHit": true,
+      "matchedKeywords": [
+        "1/35"
+      ],
+      "missedKeywords": [
+        "1 out of 35"
+      ],
+      "retrievedSnippets": [
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 6,
+      "category": "basic_fact",
+      "question": "What is the name of Yiyuan's second internship company?",
+      "groundTruth": "Deloitte",
+      "isHit": true,
+      "matchedKeywords": [
+        "Deloitte"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "basic_fact",
+      "question": "What was Yiyuan's first internship company?",
+      "groundTruth": "Huatai United Securities",
+      "isHit": true,
+      "matchedKeywords": [
+        "Huatai"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 8,
+      "category": "basic_fact",
+      "question": "What master's program is Yiyuan applying to?",
+      "groundTruth": "MSc Business Analytics",
+      "isHit": false,
+      "matchedKeywords": [],
+      "missedKeywords": [
+        "Business Analytics"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 9,
+      "category": "basic_fact",
+      "question": "Which university's program is Yiyuan applying to?",
+      "groundTruth": "The University of Hong Kong (HKU)",
+      "isHit": true,
+      "matchedKeywords": [
+        "HKU"
+      ],
+      "missedKeywords": [
+        "Hong Kong"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 10,
+      "category": "basic_fact",
+      "question": "What year did Yiyuan participate in the Shanghai typhoon project?",
+      "groundTruth": "2019",
+      "isHit": true,
+      "matchedKeywords": [
+        "2019"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 11,
+      "category": "cross_paragraph",
+      "question": "What statistical model did Yiyuan streamline at DiDi?",
+      "groundTruth": "PSM (Propensity Score Matching)",
+      "isHit": true,
+      "matchedKeywords": [
+        "PSM"
+      ],
+      "missedKeywords": [
+        "Propensity Score Matching"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 12,
+      "category": "cross_paragraph",
+      "question": "What algorithms were used in the Cornell mathematical modeling contest?",
+      "groundTruth": "Monte Carlo simulation and genetic algorithms",
+      "isHit": false,
+      "matchedKeywords": [],
+      "missedKeywords": [
+        "Monte Carlo",
+        "genetic algorithm"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 13,
+      "category": "cross_paragraph",
+      "question": "What pest was studied in the Cornell modeling project?",
+      "groundTruth": "Spotted lanternfly (SLF), a grapevine pest",
+      "isHit": true,
+      "matchedKeywords": [
+        "SLF",
+        "grapevine"
+      ],
+      "missedKeywords": [
+        "lanternfly"
+      ],
+      "retrievedSnippets": [
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn"
+      ]
+    },
+    {
+      "id": 14,
+      "category": "cross_paragraph",
+      "question": "What courses did Yiyuan take during exchange at Cornell?",
+      "groundTruth": "Intermediate Microeconomics, Applied Econometrics, Ordinary Differential Equations, Mathematical Modeling, Python",
+      "isHit": true,
+      "matchedKeywords": [
+        "Microeconomics",
+        "Econometrics",
+        "Differential"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 15,
+      "category": "cross_paragraph",
+      "question": "What minor did Yiyuan register for at Tsinghua?",
+      "groundTruth": "Economics and Finance Minor",
+      "isHit": true,
+      "matchedKeywords": [
+        "Economics",
+        "Finance"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 16,
+      "category": "cross_paragraph",
+      "question": "What music achievement did Yiyuan earn at Tsinghua?",
+      "groundTruth": "2022 Top 10 Campus Original Musicians of the Year",
+      "isHit": false,
+      "matchedKeywords": [],
+      "missedKeywords": [
+        "Top 10",
+        "Original Musicians"
+      ],
+      "retrievedSnippets": [
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 17,
+      "category": "cross_paragraph",
+      "question": "What did Yiyuan do to assist government decision-making during the typhoon?",
+      "groundTruth": "Collected data from Weibo to locate road waterlogging points, made distribution maps",
+      "isHit": true,
+      "matchedKeywords": [
+        "waterlogging",
+        "Weibo"
+      ],
+      "missedKeywords": [
+        "distribution map"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 18,
+      "category": "cross_paragraph",
+      "question": "What programming tool did Yiyuan use in the Cornell modeling contest?",
+      "groundTruth": "MATLAB",
+      "isHit": true,
+      "matchedKeywords": [
+        "MATLAB"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 19,
+      "category": "cross_paragraph",
+      "question": "What type of work did Yiyuan do at Deloitte?",
+      "groundTruth": "Tax and Business Advisory - spot checks on accounting vouchers, tax consultations",
+      "isHit": true,
+      "matchedKeywords": [
+        "audit",
+        "tax"
+      ],
+      "missedKeywords": [
+        "accounting vouchers",
+        "spot check"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 20,
+      "category": "cross_paragraph",
+      "question": "What optimization methods were used for pest management strategy selection?",
+      "groundTruth": "Genetic algorithms and weighted multivariate optimization",
+      "isHit": true,
+      "matchedKeywords": [
+        "genetic"
+      ],
+      "missedKeywords": [
+        "weighted multivariate"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn"
+      ]
+    },
+    {
+      "id": 21,
+      "category": "comprehensive",
+      "question": "What is Yiyuan's short-term career goal after graduation?",
+      "groundTruth": "Work as a business analyst in IT industry at companies like Google, Meta, Amazon, or consultancies like BCG, Deloitte",
+      "isHit": true,
+      "matchedKeywords": [
+        "Google",
+        "Meta",
+        "Amazon",
+        "BCG",
+        "Deloitte"
+      ],
+      "missedKeywords": [
+        "business analyst",
+        "IT industry"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro"
+      ]
+    },
+    {
+      "id": 22,
+      "category": "comprehensive",
+      "question": "What is Yiyuan's long-term career vision?",
+      "groundTruth": "Create or promote university-enterprise cooperation programs combining industry, academia and research",
+      "isHit": true,
+      "matchedKeywords": [
+        "university-enterprise",
+        "cooperation",
+        "industry",
+        "academia"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity"
+      ]
+    },
+    {
+      "id": 23,
+      "category": "comprehensive",
+      "question": "What leadership roles did Yiyuan hold at Tsinghua?",
+      "groundTruth": "Student Union, Monitor & Art Committee, Section Leader of Student Choir, Chief Director of microfilm",
+      "isHit": true,
+      "matchedKeywords": [
+        "Monitor"
+      ],
+      "missedKeywords": [
+        "Student Union",
+        "Section Leader",
+        "chief director"
+      ],
+      "retrievedSnippets": [
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 24,
+      "category": "comprehensive",
+      "question": "What HKU courses is Yiyuan most interested in?",
+      "groundTruth": "Business Intelligence and Analytics, Decision Analytics, Digital Experimentation Methods, Storytelling with Data",
+      "isHit": true,
+      "matchedKeywords": [
+        "Storytelling"
+      ],
+      "missedKeywords": [
+        "Business Intelligence",
+        "Decision Analytics",
+        "Digital Experimentation"
+      ],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
+      ]
+    },
+    {
+      "id": 25,
+      "category": "comprehensive",
+      "question": "What kind of work did Yiyuan discover she prefers over auditing?",
+      "groundTruth": "Creative work",
+      "isHit": true,
+      "matchedKeywords": [
+        "creative"
+      ],
+      "missedKeywords": [],
+      "retrievedSnippets": [
+        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
+        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
+        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
+        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
+        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn"
+      ]
+    }
+  ]
+}
