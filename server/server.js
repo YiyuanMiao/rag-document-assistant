@@ -7,6 +7,8 @@ import chat from "./chat.js";
 import chatMCP from "./chat-mcp.js";
 import { ensureIndex, docExists } from "./opensearch.js";
 import { ingestPdf } from "./ingest.js";
+import { summarizeDoc } from "./summarize.js";
+import { answerCRAG } from "./router.js";
 
 dotenv.config();
 
@@ -40,24 +42,52 @@ app.get("/chat", async (req, res) => {
   try {
     if (!question) return res.status(400).send({ error: "question is required" });
 
-    let ragAnswer = "Please upload a document first.";
+    // CRAG mode: retrieve -> grade sufficiency -> optional web -> one fused answer.
+    if (process.env.ROUTER === "on") {
+      const r = await answerCRAG(docId, question);
+      const source =
+        r.usedDoc && r.usedWeb ? "文档 + 网络搜索（混合结论）"
+        : r.usedDoc ? "文档"
+        : r.usedWeb ? "网络搜索"
+        : "无相关资料";
+      return res.send({ answer: r.answer, source, route: r.grade });
+    }
+
+    // Legacy mode: doc answer, falling back to web only if the doc has nothing.
+    let answer = "Please upload a document first.";
+    let source = "无相关资料";
     let hits = 0;
     if (docId && (await docExists(docId))) {
       const ragResp = await chat(docId, question);
-      ragAnswer = ragResp.text;
+      answer = ragResp.text;
       hits = ragResp.hits;
+      source = "文档";
     }
-
-    // Web fallback only when the document yields no relevant chunks.
-    let mcpAnswer = "N/A";
-    if (hits === 0) {
+    if (hits === 0 && process.env.SERPAPI_KEY) {
       const mcpResp = await chatMCP(question);
-      mcpAnswer = mcpResp.text;
+      answer = mcpResp.text;
+      source = "网络搜索";
     }
 
-    res.send({ ragAnswer, mcpAnswer });
+    res.send({ answer, source });
   } catch (err) {
     console.error("chat failed:", err);
+    res.status(500).send({ error: err.message });
+  }
+});
+
+// Whole-document map-reduce summary (overall + per-section). Works for any doc;
+// for chaptered docs it summarizes per chapter and includes the ending/outcome.
+app.get("/summarize", async (req, res) => {
+  const { docId } = req.query;
+  try {
+    if (!docId || !(await docExists(docId))) {
+      return res.status(400).send({ error: "unknown or missing docId" });
+    }
+    const result = await summarizeDoc(docId);
+    res.send(result);
+  } catch (err) {
+    console.error("summarize failed:", err);
     res.status(500).send({ error: err.message });
   }
 });

@@ -1,12 +1,12 @@
 // OpenSearch layer: k-NN vector index + hybrid (BM25 + vector) retrieval.
 // Replaces the per-request in-memory MemoryVectorStore.
+import "dotenv/config"; // load .env before reading process.env below (ESM imports run first)
 import { Client } from "@opensearch-project/opensearch";
-import { OpenAIEmbeddings } from "@langchain/openai";
+import { getEmbeddings } from "./models.js";
 
 const NODE = process.env.OPENSEARCH_URL || "https://localhost:9200";
 const INDEX = process.env.OPENSEARCH_INDEX || "rag-documents";
-const EMBED_MODEL = process.env.EMBED_MODEL || "text-embedding-3-small";
-const EMBED_DIM = Number(process.env.EMBED_DIM || 1536); // must match EMBED_MODEL
+const EMBED_DIM = Number(process.env.EMBED_DIM || 1536); // must match the embedding model (OpenAI 1536 / Titan v2 1024)
 const PIPELINE = "rag-hybrid-pipeline";
 
 export const client = new Client({
@@ -21,7 +21,7 @@ export const client = new Client({
   ssl: { rejectUnauthorized: process.env.OPENSEARCH_SSL_VERIFY === "true" },
 });
 
-const embeddings = new OpenAIEmbeddings({ model: EMBED_MODEL });
+const embeddings = getEmbeddings();
 
 let hybridEnabled = false;
 
@@ -38,6 +38,9 @@ export async function ensureIndex() {
           properties: {
             text: { type: "text" },
             docId: { type: "keyword" },
+            order: { type: "integer" },        // global reading order (for summary)
+            chapter: { type: "integer" },       // chapter number (null if none)
+            chapterTitle: { type: "text" },     // chapter heading (for citations)
             embedding: {
               type: "knn_vector",
               dimension: EMBED_DIM,
@@ -91,9 +94,16 @@ export async function ingestChunks(docId, chunks) {
   const vectors = await embeddings.embedDocuments(texts);
 
   const body = [];
-  texts.forEach((text, i) => {
+  chunks.forEach((c, i) => {
     body.push({ index: { _index: INDEX } });
-    body.push({ text, docId, embedding: vectors[i] });
+    body.push({
+      text: c.pageContent,
+      docId,
+      order: i, // preserves reading order for map-reduce summary
+      ...(c.metadata?.chapter != null && { chapter: c.metadata.chapter }),
+      ...(c.metadata?.chapterTitle && { chapterTitle: c.metadata.chapterTitle }),
+      embedding: vectors[i],
+    });
   });
 
   const resp = await client.bulk({ refresh: true, body });
@@ -116,6 +126,7 @@ export async function hybridSearch(query, docId, k = 5) {
         search_pipeline: PIPELINE,
         body: {
           size: k,
+          _source: ["text", "chapter", "chapterTitle"],
           query: {
             hybrid: {
               queries: [
@@ -126,7 +137,7 @@ export async function hybridSearch(query, docId, k = 5) {
           },
         },
       });
-      return res.body.hits.hits.map((h) => h._source.text);
+      return res.body.hits.hits.map((h) => h._source);
     } catch (e) {
       console.warn(`[opensearch] hybrid query failed, using pure k-NN: ${e.message}`);
     }
@@ -137,10 +148,25 @@ export async function hybridSearch(query, docId, k = 5) {
     index: INDEX,
     body: {
       size: k,
+      _source: ["text", "chapter", "chapterTitle"],
       query: { knn: { embedding: { vector: qVec, k, filter: docFilter } } },
     },
   });
-  return res.body.hits.hits.map((h) => h._source.text);
+  return res.body.hits.hits.map((h) => h._source);
+}
+
+// Fetch all chunks of a doc in reading order (for map-reduce summarization).
+export async function fetchAllChunks(docId, max = 10000) {
+  const res = await client.search({
+    index: INDEX,
+    body: {
+      size: max,
+      _source: ["text", "chapter", "chapterTitle", "order"],
+      query: { term: { docId } },
+      sort: [{ order: "asc" }],
+    },
+  });
+  return res.body.hits.hits.map((h) => h._source);
 }
 
 export async function docExists(docId) {

@@ -137,7 +137,7 @@ const ChatComponent = (props) => {
       });
       handleResp(question, response.data);
       if (isChatModeOn) {
-        talk(response.data?.ragAnswer);
+        talk(response.data?.answer);
       }
     } catch (error) {
       console.error(`Error: ${error}`);

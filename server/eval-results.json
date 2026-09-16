@@ -1,513 +1,1128 @@
 {
-  "hitRate": 88,
-  "totalHits": 22,
-  "totalQuestions": 25,
-  "categoryStats": {
-    "basic_fact": {
-      "total": 10,
-      "hits": 9
-    },
-    "cross_paragraph": {
-      "total": 10,
-      "hits": 8
-    },
-    "comprehensive": {
-      "total": 5,
-      "hits": 5
-    }
+  "hitRate": 98,
+  "faithfulnessRate": null,
+  "correctnessRate": null,
+  "totalQuestions": 100,
+  "config": {
+    "topK": 30,
+    "chunks": 2203,
+    "retrievalOnly": true
   },
   "results": [
     {
       "id": 1,
       "category": "basic_fact",
-      "question": "What is Yiyuan Miao's GPA at Tsinghua University?",
-      "groundTruth": "3.97/4.00",
+      "question": "谢怜是哪个国家的太子？",
       "isHit": true,
-      "matchedKeywords": [
-        "3.97",
-        "4.00"
+      "matched": [
+        "仙乐国"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 2,
       "category": "basic_fact",
-      "question": "Which university did Yiyuan go to for exchange study?",
-      "groundTruth": "Cornell University",
+      "question": "谢怜第一次担任“悦神武者”时几岁？",
       "isHit": true,
-      "matchedKeywords": [
-        "Cornell"
+      "matched": [
+        "十七岁"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 3,
       "category": "basic_fact",
-      "question": "What is Yiyuan's undergraduate major at Tsinghua?",
-      "groundTruth": "English major",
+      "question": "谢怜一共飞升过几次？",
       "isHit": true,
-      "matchedKeywords": [
-        "English"
+      "matched": [
+        "第三次飞升"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 4,
       "category": "basic_fact",
-      "question": "What company did Yiyuan intern at for data analytics?",
-      "groundTruth": "DiDi",
+      "question": "花城作为“四大害”之一的名号是什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "DiDi"
+      "matched": [
+        "绝境鬼王"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 5,
       "category": "basic_fact",
-      "question": "What was Yiyuan's class rank at Tsinghua?",
-      "groundTruth": "Rank 1/35",
+      "question": "花城在人间行走时用的化名是什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "1/35"
+      "matched": [
+        "三郎"
       ],
-      "missedKeywords": [
-        "1 out of 35"
-      ],
-      "retrievedSnippets": [
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 6,
       "category": "basic_fact",
-      "question": "What is the name of Yiyuan's second internship company?",
-      "groundTruth": "Deloitte",
+      "question": "被称为千年第一武神的神武大帝叫什么名字？",
       "isHit": true,
-      "matchedKeywords": [
-        "Deloitte"
+      "matched": [
+        "君吾"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 7,
       "category": "basic_fact",
-      "question": "What was Yiyuan's first internship company?",
-      "groundTruth": "Huatai United Securities",
+      "question": "谢怜随身的白绫法器叫什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "Huatai"
+      "matched": [
+        "若邪"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 8,
       "category": "basic_fact",
-      "question": "What master's program is Yiyuan applying to?",
-      "groundTruth": "MSc Business Analytics",
-      "isHit": false,
-      "matchedKeywords": [],
-      "missedKeywords": [
-        "Business Analytics"
+      "question": "风师飞升前在人间的本名是什么？",
+      "isHit": true,
+      "matched": [
+        "师青玄"
       ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 9,
       "category": "basic_fact",
-      "question": "Which university's program is Yiyuan applying to?",
-      "groundTruth": "The University of Hong Kong (HKU)",
+      "question": "地师飞升前在人间的本名是什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "HKU"
+      "matched": [
+        "明仪"
       ],
-      "missedKeywords": [
-        "Hong Kong"
-      ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 10,
       "category": "basic_fact",
-      "question": "What year did Yiyuan participate in the Shanghai typhoon project?",
-      "groundTruth": "2019",
+      "question": "水师的本名是什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "2019"
+      "matched": [
+        "师无渡"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 11,
-      "category": "cross_paragraph",
-      "question": "What statistical model did Yiyuan streamline at DiDi?",
-      "groundTruth": "PSM (Propensity Score Matching)",
+      "category": "basic_fact",
+      "question": "明光将军是哪位神官？",
       "isHit": true,
-      "matchedKeywords": [
-        "PSM"
+      "matched": [
+        "裴茗"
       ],
-      "missedKeywords": [
-        "Propensity Score Matching"
-      ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 12,
-      "category": "cross_paragraph",
-      "question": "What algorithms were used in the Cornell mathematical modeling contest?",
-      "groundTruth": "Monte Carlo simulation and genetic algorithms",
-      "isHit": false,
-      "matchedKeywords": [],
-      "missedKeywords": [
-        "Monte Carlo",
-        "genetic algorithm"
+      "category": "basic_fact",
+      "question": "谢怜那位化为青鬼的表弟是谁？",
+      "isHit": true,
+      "matched": [
+        "戚容"
       ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 13,
-      "category": "cross_paragraph",
-      "question": "What pest was studied in the Cornell modeling project?",
-      "groundTruth": "Spotted lanternfly (SLF), a grapevine pest",
+      "category": "basic_fact",
+      "question": "花城是从哪座山里出来的？",
       "isHit": true,
-      "matchedKeywords": [
-        "SLF",
-        "grapevine"
+      "matched": [
+        "铜炉山"
       ],
-      "missedKeywords": [
-        "lanternfly"
-      ],
-      "retrievedSnippets": [
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 14,
-      "category": "cross_paragraph",
-      "question": "What courses did Yiyuan take during exchange at Cornell?",
-      "groundTruth": "Intermediate Microeconomics, Applied Econometrics, Ordinary Differential Equations, Mathematical Modeling, Python",
+      "category": "basic_fact",
+      "question": "谢怜爱吃、也常被村民供奉的一种食物是什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "Microeconomics",
-        "Econometrics",
-        "Differential"
+      "matched": [
+        "菩荠"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 15,
-      "category": "cross_paragraph",
-      "question": "What minor did Yiyuan register for at Tsinghua?",
-      "groundTruth": "Economics and Finance Minor",
+      "category": "basic_fact",
+      "question": "谢怜早年的两位部将、后来的神官是谁？",
       "isHit": true,
-      "matchedKeywords": [
-        "Economics",
-        "Finance"
+      "matched": [
+        "风信",
+        "慕情"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 16,
-      "category": "cross_paragraph",
-      "question": "What music achievement did Yiyuan earn at Tsinghua?",
-      "groundTruth": "2022 Top 10 Campus Original Musicians of the Year",
-      "isHit": false,
-      "matchedKeywords": [],
-      "missedKeywords": [
-        "Top 10",
-        "Original Musicians"
+      "category": "basic_fact",
+      "question": "风信的神官封号是什么？",
+      "isHit": true,
+      "matched": [
+        "南阳将军"
       ],
-      "retrievedSnippets": [
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 17,
-      "category": "cross_paragraph",
-      "question": "What did Yiyuan do to assist government decision-making during the typhoon?",
-      "groundTruth": "Collected data from Weibo to locate road waterlogging points, made distribution maps",
-      "isHit": true,
-      "matchedKeywords": [
-        "waterlogging",
-        "Weibo"
-      ],
-      "missedKeywords": [
-        "distribution map"
-      ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "category": "basic_fact",
+      "question": "慕情的神官封号是什么？",
+      "isHit": false,
+      "matched": [],
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 18,
-      "category": "cross_paragraph",
-      "question": "What programming tool did Yiyuan use in the Cornell modeling contest?",
-      "groundTruth": "MATLAB",
+      "category": "basic_fact",
+      "question": "郎千秋是哪个国家的太子？",
       "isHit": true,
-      "matchedKeywords": [
-        "MATLAB"
+      "matched": [
+        "永安国"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 19,
-      "category": "cross_paragraph",
-      "question": "What type of work did Yiyuan do at Deloitte?",
-      "groundTruth": "Tax and Business Advisory - spot checks on accounting vouchers, tax consultations",
+      "category": "basic_fact",
+      "question": "花城的弯刀叫什么名字？",
       "isHit": true,
-      "matchedKeywords": [
-        "audit",
-        "tax"
+      "matched": [
+        "厄命"
       ],
-      "missedKeywords": [
-        "accounting vouchers",
-        "spot check"
-      ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 20,
-      "category": "cross_paragraph",
-      "question": "What optimization methods were used for pest management strategy selection?",
-      "groundTruth": "Genetic algorithms and weighted multivariate optimization",
+      "category": "basic_fact",
+      "question": "半月关所在的半月国地处哪个方位？",
       "isHit": true,
-      "matchedKeywords": [
-        "genetic"
+      "matched": [
+        "西域"
       ],
-      "missedKeywords": [
-        "weighted multivariate"
-      ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 21,
-      "category": "comprehensive",
-      "question": "What is Yiyuan's short-term career goal after graduation?",
-      "groundTruth": "Work as a business analyst in IT industry at companies like Google, Meta, Amazon, or consultancies like BCG, Deloitte",
+      "category": "basic_fact",
+      "question": "谢怜落魄时最典型的装扮特征是什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "Google",
-        "Meta",
-        "Amazon",
-        "BCG",
-        "Deloitte"
+      "matched": [
+        "斗笠"
       ],
-      "missedKeywords": [
-        "business analyst",
-        "IT industry"
-      ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 22,
-      "category": "comprehensive",
-      "question": "What is Yiyuan's long-term career vision?",
-      "groundTruth": "Create or promote university-enterprise cooperation programs combining industry, academia and research",
+      "category": "cross_paragraph",
+      "question": "“四大害”里除了绝境鬼王，另外三个名号是什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "university-enterprise",
-        "cooperation",
-        "industry",
-        "academia"
+      "matched": [
+        "黑水沉舟",
+        "青灯夜游",
+        "白衣祸世"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 23,
-      "category": "comprehensive",
-      "question": "What leadership roles did Yiyuan hold at Tsinghua?",
-      "groundTruth": "Student Union, Monitor & Art Committee, Section Leader of Student Choir, Chief Director of microfilm",
+      "category": "cross_paragraph",
+      "question": "第一章标题里，谢怜是在哪座桥“逢魔遇仙”？",
       "isHit": true,
-      "matchedKeywords": [
-        "Monitor"
+      "matched": [
+        "一念桥"
       ],
-      "missedKeywords": [
-        "Student Union",
-        "Section Leader",
-        "chief director"
-      ],
-      "retrievedSnippets": [
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 24,
-      "category": "comprehensive",
-      "question": "What HKU courses is Yiyuan most interested in?",
-      "groundTruth": "Business Intelligence and Analytics, Decision Analytics, Digital Experimentation Methods, Storytelling with Data",
+      "category": "cross_paragraph",
+      "question": "郎千秋的先祖对仙乐国做过什么？",
       "isHit": true,
-      "matchedKeywords": [
-        "Storytelling"
+      "matched": [
+        "攻打",
+        "仙乐国"
       ],
-      "missedKeywords": [
-        "Business Intelligence",
-        "Decision Analytics",
-        "Digital Experimentation"
-      ],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn",
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill"
-      ]
+      "answer": null,
+      "verdict": null
     },
     {
       "id": 25,
-      "category": "comprehensive",
-      "question": "What kind of work did Yiyuan discover she prefers over auditing?",
-      "groundTruth": "Creative work",
+      "category": "cross_paragraph",
+      "question": "天界五师用什么来代替姓氏？",
       "isHit": true,
-      "matchedKeywords": [
-        "creative"
+      "matched": [
+        "称号"
       ],
-      "missedKeywords": [],
-      "retrievedSnippets": [
-        "YiyuanMiao MSinBusinessAnalytics understandingofmathematicalmodelingandcompletedmyexchangestudyfromCornellwithaneven dee",
-        "platformreportingerrors,howtooptimizetheexperiments,etc.).Whilemystatisticalknowledge,data analysisandcollaborationskill",
-        "distinction,wasrecruitedontothevolleyballteam,electedtotheStudentUnion,competedtobeSection LeaderoftheTsinghuaUniversity",
-        "YiyuanMiao MSinBusinessAnalytics PersonalStatement Growingupwithaknackfornumbers,I'vealwaysbeencuriousaboutmerchants'pro",
-        "YiyuanMiao MSinBusinessAnalytics win-winsituation. BeforeIgoontopursuemycareergoals,IwouldliketoenrollintheMScBusinessAn"
-      ]
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 26,
+      "category": "cross_paragraph",
+      "question": "谢怜在神官榜单上摘得了哪个“第一名”？",
+      "isHit": true,
+      "matched": [
+        "最期望将其贬下凡间"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 27,
+      "category": "cross_paragraph",
+      "question": "花城与三十三神官斗法的赌约中，若花城败要交出什么？",
+      "isHit": true,
+      "matched": [
+        "骨灰"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 28,
+      "category": "cross_paragraph",
+      "question": "谢怜第三次飞升后，最初的香火状况如何？",
+      "isHit": true,
+      "matched": [
+        "香火"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 29,
+      "category": "cross_paragraph",
+      "question": "半月国主要和哪个中原国家长期交战？",
+      "isHit": true,
+      "matched": [
+        "永安国"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 30,
+      "category": "cross_paragraph",
+      "question": "水师师无渡和风师师青玄是什么关系？",
+      "isHit": true,
+      "matched": [
+        "师无渡",
+        "师青玄"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 31,
+      "category": "cross_paragraph",
+      "question": "半月国师是男是女？",
+      "isHit": true,
+      "matched": [
+        "白衣女冠"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 32,
+      "category": "comprehensive",
+      "question": "用一句话概括谢怜的身世。",
+      "isHit": true,
+      "matched": [
+        "仙乐国",
+        "太子"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 33,
+      "category": "comprehensive",
+      "question": "花城这个人物的核心身份和特点是什么？",
+      "isHit": true,
+      "matched": [
+        "绝境鬼王",
+        "花城"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 34,
+      "category": "comprehensive",
+      "question": "“四大害”整体指的是什么？",
+      "isHit": true,
+      "matched": [
+        "四大害",
+        "绝境鬼王"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 35,
+      "category": "comprehensive",
+      "question": "地师和风师飞升前的本名分别是什么？",
+      "isHit": true,
+      "matched": [
+        "明仪",
+        "师青玄"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 36,
+      "category": "comprehensive",
+      "question": "谢怜和花城的关系可以概括为？",
+      "isHit": true,
+      "matched": [
+        "谢怜",
+        "花城"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 37,
+      "category": "comprehensive",
+      "question": "神武大帝君吾在天界的地位如何？",
+      "isHit": true,
+      "matched": [
+        "君吾",
+        "神武大帝"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 38,
+      "category": "comprehensive",
+      "question": "谢怜手中的法器若邪有什么用途？",
+      "isHit": true,
+      "matched": [
+        "若邪"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 39,
+      "category": "basic_fact",
+      "question": "铜炉山正中心的那座“铜炉”实际上是什么？",
+      "isHit": true,
+      "matched": [
+        "活火山"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 40,
+      "category": "basic_fact",
+      "question": "铜炉山所在之地在两千多年前曾是哪个古国？",
+      "isHit": true,
+      "matched": [
+        "乌庸国"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 41,
+      "category": "basic_fact",
+      "question": "鬼进入铜炉后，必须在多长时间内冲破铜炉才能成为鬼王？",
+      "isHit": true,
+      "matched": [
+        "七七四十九天"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 42,
+      "category": "basic_fact",
+      "question": "在铜炉山最外层，是哪只鬼用黄符逼谢怜验明身份、险些揭穿他？",
+      "isHit": true,
+      "matched": [
+        "夺命快刀魔"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 43,
+      "category": "basic_fact",
+      "question": "裴茗靠什么东西冒充非人之物混进铜炉山？",
+      "isHit": true,
+      "matched": [
+        "鬼味糖球"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 44,
+      "category": "cross_paragraph",
+      "question": "灵文（南宫杰）飞升成神之前，在人间是做什么营生的？",
+      "isHit": true,
+      "matched": [
+        "南宫杰"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 45,
+      "category": "basic_fact",
+      "question": "灵文当年在须黎国文神祭典上夺魁的那篇文章叫什么？",
+      "isHit": true,
+      "matched": [
+        "不须黎"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 46,
+      "category": "cross_paragraph",
+      "question": "师无渡当众断言不是敬文所作、从而牵出灵文的那篇文章叫什么？",
+      "isHit": true,
+      "matched": [
+        "神武赋"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 47,
+      "category": "comprehensive",
+      "question": "锦衣仙“白锦”真正的死因是什么？与世间流传的传说有何本质区别？",
+      "isHit": true,
+      "matched": [
+        "白锦"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 48,
+      "category": "cross_paragraph",
+      "question": "花城带谢怜进入锦衣仙内心的法术叫什么？",
+      "isHit": true,
+      "matched": [
+        "蝶梦"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 49,
+      "category": "comprehensive",
+      "question": "引玉被贬、其师弟被君吾御去四肢，起因是什么？",
+      "isHit": true,
+      "matched": [
+        "权一真"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 50,
+      "category": "basic_fact",
+      "question": "上天庭现任雨师的真实身份是谁？",
+      "isHit": true,
+      "matched": [
+        "雨师篁"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 51,
+      "category": "comprehensive",
+      "question": "“公主自刎”这个典故讲的是什么？",
+      "isHit": true,
+      "matched": [
+        "公主自刎"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 52,
+      "category": "comprehensive",
+      "question": "“将军折剑”讲的是裴茗的什么经历，结局如何？",
+      "isHit": true,
+      "matched": [
+        "格杀勿论"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 53,
+      "category": "basic_fact",
+      "question": "花城系在谢怜手指上的那道红线（缘结）有什么作用？",
+      "isHit": true,
+      "matched": [
+        "红线"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 54,
+      "category": "comprehensive",
+      "question": "谢怜能“听懂”食尸鼠的乌庸语，真正原因是什么？",
+      "isHit": true,
+      "matched": [
+        "白无相"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 55,
+      "category": "basic_fact",
+      "question": "在雪山上，是谁互斗吼叫、最终引发了雪崩？",
+      "isHit": true,
+      "matched": [
+        "南风",
+        "扶摇"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 56,
+      "category": "basic_fact",
+      "question": "谢怜进入的那座石窟里，所有神像有一个诡异的共同点，是什么？",
+      "isHit": true,
+      "matched": [
+        "轻纱"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 57,
+      "category": "cross_paragraph",
+      "question": "慕情为何一眼认出花城束发的那颗红珠不寻常？它的来历是什么？",
+      "isHit": true,
+      "matched": [
+        "红珊瑚珠"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 58,
+      "category": "comprehensive",
+      "question": "揭开面纱后发现，这座“万神窟”其实供奉的是谁？",
+      "isHit": true,
+      "matched": [
+        "万神窟"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 59,
+      "category": "basic_fact",
+      "question": "慕情当年为什么把花城赶出军营？",
+      "isHit": true,
+      "matched": [
+        "天煞孤星"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 60,
+      "category": "basic_fact",
+      "question": "白无相说谢怜给宝剑取名“芳心”取错了，这把剑本来叫什么？",
+      "isHit": true,
+      "matched": [
+        "诛心"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 61,
+      "category": "comprehensive",
+      "question": "白无相把谢怜关进铜炉后，透露的“第三条路”具体是什么？",
+      "isHit": true,
+      "matched": [
+        "第三条路"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 62,
+      "category": "basic_fact",
+      "question": "君吾给谢怜打上的咒枷有什么作用？",
+      "isHit": true,
+      "matched": [
+        "咒枷"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 63,
+      "category": "basic_fact",
+      "question": "中元夜那个黑袍老者兜售的花灯里装的是什么？",
+      "isHit": true,
+      "matched": [
+        "中元"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 64,
+      "category": "cross_paragraph",
+      "question": "为给国主买药，谢怜做了什么违背原则的事，因此撞见了谁？",
+      "isHit": true,
+      "matched": [
+        "劫富济贫"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 65,
+      "category": "comprehensive",
+      "question": "三十几名神官为什么执意要谢怜离开那片洞天福地？",
+      "isHit": true,
+      "matched": [
+        "洞天福地"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 66,
+      "category": "basic_fact",
+      "question": "与三十三神官对峙时，慕情最后对谢怜做了什么？",
+      "isHit": true,
+      "matched": [
+        "长刀"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 67,
+      "category": "comprehensive",
+      "question": "白无相当众揭露的人面疫“免疫”方法是什么？为什么士兵患病最少？",
+      "isHit": true,
+      "matched": [
+        "人面疫",
+        "士兵"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 68,
+      "category": "comprehensive",
+      "question": "太子庙一幕结尾，那团一直跟随谢怜的鬼火发生了什么变化？",
+      "isHit": true,
+      "matched": [
+        "厉鬼成形"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 69,
+      "category": "basic_fact",
+      "question": "白无相在谢怜清醒后佩在他腰上、当作“礼物”的是什么？",
+      "isHit": true,
+      "matched": [
+        "黑剑"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 70,
+      "category": "basic_fact",
+      "question": "谢怜回来后把那把黑剑交给风信，让他做什么？",
+      "isHit": true,
+      "matched": [
+        "当掉"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 71,
+      "category": "basic_fact",
+      "question": "谢怜的父皇母后最终是怎么离世的？",
+      "isHit": true,
+      "matched": [
+        "白绫"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 72,
+      "category": "basic_fact",
+      "question": "跟随谢怜的黑衣武者“无名”自称多大年纪、身形如何？",
+      "isHit": true,
+      "matched": [
+        "十六七岁"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 73,
+      "category": "cross_paragraph",
+      "question": "谢怜闯入永安皇宫要找郎英复仇，郎英是怎样死的？",
+      "isHit": true,
+      "matched": [
+        "郎英"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 74,
+      "category": "cross_paragraph",
+      "question": "无名向谢怜提出的“不情之请”是什么？理由是什么？",
+      "isHit": true,
+      "matched": [
+        "无名"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 75,
+      "category": "comprehensive",
+      "question": "谢怜倒转剑锋刺进自己腹中、躺在岔路口坑里数日，是在等待/证明什么？",
+      "isHit": true,
+      "matched": [
+        "瘟神"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 76,
+      "category": "cross_paragraph",
+      "question": "最终让谢怜回心转意、决定不灭永安的关键小事是什么？",
+      "isHit": false,
+      "matched": [],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 77,
+      "category": "comprehensive",
+      "question": "那个魂飞魄散的黑衣无名鬼，其真实身份对谢怜意味着什么？",
+      "isHit": true,
+      "matched": [
+        "信徒"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 78,
+      "category": "basic_fact",
+      "question": "君吾助谢怜“归位”后，谢怜主动请求君吾赐给他哪两道咒枷？",
+      "isHit": true,
+      "matched": [
+        "咒枷"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 79,
+      "category": "comprehensive",
+      "question": "在铜炉之中，谢怜推断出白无相的真实身份是谁？",
+      "isHit": true,
+      "matched": [
+        "乌庸太子"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 80,
+      "category": "cross_paragraph",
+      "question": "谢怜是靠什么冲出封闭的铜炉的？这东西是谁造的？",
+      "isHit": true,
+      "matched": [
+        "巨石神像"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 81,
+      "category": "cross_paragraph",
+      "question": "为在皇城设阵抵御怨灵，谢怜需要什么样的人、大约多少？",
+      "isHit": true,
+      "matched": [
+        "五百人"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 82,
+      "category": "comprehensive",
+      "question": "人阵围成后，花城为何说人数“不对”？他数出多少人？暗示了什么？",
+      "isHit": true,
+      "matched": [
+        "三百一十七个人"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 83,
+      "category": "comprehensive",
+      "question": "在神武殿上，是什么揭穿了君吾就是白无相？关键道具是什么？",
+      "isHit": true,
+      "matched": [
+        "红镜"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 84,
+      "category": "basic_fact",
+      "question": "戚容闯入灵文殿后，在最显眼的墙壁上写下了什么？",
+      "isHit": true,
+      "matched": [
+        "灵文殿"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 85,
+      "category": "cross_paragraph",
+      "question": "南阳殿里风信认出的女鬼“兰菖”真名是谁？她与风信、胎灵“错错”是什么关系？",
+      "isHit": true,
+      "matched": [
+        "剑兰",
+        "错错"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 86,
+      "category": "comprehensive",
+      "question": "戚容用来蹭“三绝”的名号叫什么？为什么被烧后说它变“名副其实”了？",
+      "isHit": true,
+      "matched": [
+        "青灯夜游"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 87,
+      "category": "cross_paragraph",
+      "question": "谢怜等人被追杀时逃入了哪个鬼王的地盘？四条骨龙合体后成了什么武器？",
+      "isHit": true,
+      "matched": [
+        "黑水鬼蜮",
+        "骨龙鞭"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 88,
+      "category": "cross_paragraph",
+      "question": "白无相摘下面具后变成了谁？他随即拿走原属自己的哪把剑、改称为什么？",
+      "isHit": true,
+      "matched": [
+        "芳心",
+        "诛心"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 89,
+      "category": "comprehensive",
+      "question": "花城的弯刀“厄命”是用什么炼成的？",
+      "isHit": true,
+      "matched": [
+        "厄命"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 90,
+      "category": "basic_fact",
+      "question": "谢怜用来打败君吾、突破其千年白甲的那一招叫什么？",
+      "isHit": true,
+      "matched": [
+        "胸口碎大石"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 91,
+      "category": "comprehensive",
+      "question": "君吾说自己八百多年只被“一刀一剑”伤过，分别指谁？为何花城三刀就能破其白甲？",
+      "isHit": true,
+      "matched": [
+        "一刀一剑"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 92,
+      "category": "cross_paragraph",
+      "question": "君吾透露谢怜灭国后曾差点成为什么？那个名叫“无名”的鬼魂真身是谁？",
+      "isHit": true,
+      "matched": [
+        "白衣祸世",
+        "无名"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 93,
+      "category": "comprehensive",
+      "question": "击败君吾后，花城为何身体变透明、化作银蝶消散？",
+      "isHit": true,
+      "matched": [
+        "银蝶"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 94,
+      "category": "cross_paragraph",
+      "question": "花城最终在哪个地方等到、并在哪个节日回到谢怜身边？",
+      "isHit": true,
+      "matched": [
+        "太苍山"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 95,
+      "category": "basic_fact",
+      "question": "番外中失去八百年记忆的谢怜给自己编了个什么假姓？红衣男子让他如何称呼？",
+      "isHit": true,
+      "matched": [
+        "花道长"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 96,
+      "category": "cross_paragraph",
+      "question": "谢怜收服的那只吞记忆妖怪，被他画符后变成了什么滑稽的东西？",
+      "isHit": true,
+      "matched": [
+        "不倒翁"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 97,
+      "category": "cross_paragraph",
+      "question": "番外《鬼王的生辰》中，谢怜送花城的生辰礼是什么？取材自哪里？",
+      "isHit": true,
+      "matched": [
+        "长命锁",
+        "银妖"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 98,
+      "category": "comprehensive",
+      "question": "谢怜在花城生辰当天反复莫名心痛的真正原因是什么？",
+      "isHit": true,
+      "matched": [
+        "心尖血"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 99,
+      "category": "comprehensive",
+      "question": "番外《鬼王未梳妆》中，花城为何一整天变换皮相拼命炫技？谢怜最后想看他哪副样子？",
+      "isHit": true,
+      "matched": [
+        "眼罩",
+        "本相"
+      ],
+      "answer": null,
+      "verdict": null
+    },
+    {
+      "id": 100,
+      "category": "comprehensive",
+      "question": "灵文解释：花城穿“锦衣仙”却不被反噬，真正让锦衣仙产生共鸣的原因是什么？",
+      "isHit": true,
+      "matched": [
+        "锦衣仙"
+      ],
+      "answer": null,
+      "verdict": null
     }
   ]
 }

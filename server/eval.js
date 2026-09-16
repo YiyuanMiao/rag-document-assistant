@@ -14,11 +14,11 @@
  */
 import { readFileSync, writeFileSync } from "fs";
 import dotenv from "dotenv";
-import { ChatOpenAI } from "@langchain/openai";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { ensureIndex, hybridSearch, ingestChunks, client } from "./opensearch.js";
 import { loadAndSplit } from "./ingest.js";
 import { judgeAnswer } from "./judge.js";
+import { getChatModel } from "./models.js";
 
 dotenv.config();
 
@@ -27,6 +27,7 @@ const DOC_ID = "eval";
 const RETRIEVAL_ONLY = process.env.RETRIEVAL_ONLY === "true";
 const DEFAULT_PDF = "./uploads/Personal_Statement_Yiyuan_Miao_pdf.pdf";
 const INDEX = process.env.OPENSEARCH_INDEX || "rag-documents";
+const GOLDEN = process.env.GOLDEN || "./golden-dataset.json";
 
 const answerTemplate = `Use the following pieces of context to answer the question at the end.
 If you don't know the answer, just say that you don't know, don't try to make up an answer.
@@ -44,31 +45,38 @@ async function generate(model, prompt, context, question) {
 
 async function run() {
   const filePath = process.argv[2] || DEFAULT_PDF;
-  const dataset = JSON.parse(readFileSync("./golden-dataset.json", "utf-8"));
-  console.log(`📋 Golden dataset: ${dataset.length} questions`);
+  const dataset = JSON.parse(readFileSync(GOLDEN, "utf-8"));
+  console.log(`📋 Golden dataset (${GOLDEN}): ${dataset.length} questions`);
 
   await ensureIndex();
 
-  // Re-ingest the eval document fresh under docId="eval".
-  await client.deleteByQuery(
-    { index: INDEX, refresh: true, body: { query: { term: { docId: DOC_ID } } } },
-    { ignore: [404] },
-  );
-  console.log(`📄 Ingesting ${filePath} ...`);
-  const chunks = await loadAndSplit(filePath);
-  await ingestChunks(DOC_ID, chunks);
-  console.log(`   ${chunks.length} chunks indexed\n`);
+  // Reuse the already-indexed doc when SKIP_INGEST=true (avoids re-embedding).
+  let numChunks;
+  if (process.env.SKIP_INGEST === "true") {
+    const c = await client.count({ index: INDEX, body: { query: { term: { docId: DOC_ID } } } });
+    numChunks = c.body.count;
+    console.log(`⏭️  SKIP_INGEST: reusing ${numChunks} already-indexed chunks\n`);
+  } else {
+    // Re-ingest the eval document fresh under docId="eval".
+    await client.deleteByQuery(
+      { index: INDEX, refresh: true, body: { query: { term: { docId: DOC_ID } } } },
+      { ignore: [404] },
+    );
+    console.log(`📄 Ingesting ${filePath} ...`);
+    const chunks = await loadAndSplit(filePath);
+    await ingestChunks(DOC_ID, chunks);
+    numChunks = chunks.length;
+    console.log(`   ${numChunks} chunks indexed\n`);
+  }
 
-  const model = RETRIEVAL_ONLY
-    ? null
-    : new ChatOpenAI({ model: process.env.CHAT_MODEL || "gpt-5", ...(process.env.OPENAI_API_KEY && { apiKey: process.env.OPENAI_API_KEY }) });
+  const model = RETRIEVAL_ONLY ? null : getChatModel();
   const prompt = PromptTemplate.fromTemplate(answerTemplate);
 
   const results = [];
   let hits = 0, faithful = 0, correct = 0, judged = 0;
 
   for (const item of dataset) {
-    const retrieved = await hybridSearch(item.question, DOC_ID, TOP_K);
+    const retrieved = (await hybridSearch(item.question, DOC_ID, TOP_K)).map((r) => r.text);
     const combined = retrieved.join(" ").toLowerCase();
     const matched = item.expectedKeywords.filter((kw) => combined.includes(kw.toLowerCase()));
     const isHit = matched.length > 0;
@@ -108,7 +116,7 @@ async function run() {
     faithfulnessRate: RETRIEVAL_ONLY ? null : parseFloat(((faithful / judged) * 100).toFixed(1)),
     correctnessRate: RETRIEVAL_ONLY ? null : parseFloat(((correct / judged) * 100).toFixed(1)),
     totalQuestions: dataset.length,
-    config: { topK: TOP_K, chunks: chunks.length, retrievalOnly: RETRIEVAL_ONLY },
+    config: { topK: TOP_K, chunks: numChunks, retrievalOnly: RETRIEVAL_ONLY },
     results,
   };
   writeFileSync("./eval-results.json", JSON.stringify(report, null, 2));
@@ -117,5 +125,7 @@ async function run() {
 
 run().then(() => process.exit(0)).catch((e) => {
   console.error("💥 eval failed:", e.message);
+  if (e.meta?.body) console.error("   details:", JSON.stringify(e.meta.body.error || e.meta.body));
+  console.error(e.stack);
   process.exit(1);
 });

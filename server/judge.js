@@ -1,11 +1,9 @@
 // LLM-as-a-judge: grade a generated answer for faithfulness (grounded in the
 // retrieved context, no hallucination) and correctness (matches ground truth).
-import { ChatOpenAI } from "@langchain/openai";
+import "dotenv/config";
+import { getChatModel } from "./models.js";
 
-const judgeModel = new ChatOpenAI({
-  model: process.env.JUDGE_MODEL || "gpt-5",
-  ...(process.env.OPENAI_API_KEY && { apiKey: process.env.OPENAI_API_KEY }),
-});
+const judgeModel = getChatModel("judge");
 
 export async function judgeAnswer({ question, answer, context, groundTruth }) {
   const prompt = `You are grading a retrieval-augmented (RAG) system's answer. Be strict.

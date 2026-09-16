@@ -39,27 +39,21 @@ const answerLabel = {
 };
 
 const ragAnswerStyle = {
-  maxWidth: "50%",
+  maxWidth: "70%",
   textAlign: "left",
   backgroundColor: "#E6F7FF",
   color: "black",
   display: "inline-block",
   borderRadius: "10px",
   padding: "10px",
-  marginBottom: "5px",
+  marginBottom: "4px",
   borderLeft: "4px solid #1890FF",
+  whiteSpace: "pre-wrap", // preserve newlines in the answer
 };
 
-const mcpAnswerStyle = {
-  maxWidth: "50%",
-  textAlign: "left",
-  backgroundColor: "#F6FFED",
-  color: "black",
-  display: "inline-block",
-  borderRadius: "10px",
-  padding: "10px",
-  marginBottom: "5px",
-  borderLeft: "4px solid #52C41A",
+const sourceStyle = {
+  fontSize: "12px",
+  color: "#999",
 };
 
 const RenderQA = (props) => {
@@ -74,15 +68,9 @@ const RenderQA = (props) => {
               <div style={userStyle}>{each.question}</div>
             </div>
             <div style={agentContainer}>
-              <div>
-                <div style={answerContainer}>
-                  <div style={answerLabel}>RAG Answer (from document):</div>
-                  <div style={ragAnswerStyle}>{each.answer.ragAnswer}</div>
-                </div>
-                <div style={answerContainer}>
-                  <div style={answerLabel}>MCP Answer (with web search):</div>
-                  <div style={mcpAnswerStyle}>{each.answer.mcpAnswer}</div>
-                </div>
+              <div style={answerContainer}>
+                <div style={ragAnswerStyle}>{each.answer.answer}</div>
+                <div style={sourceStyle}>来源：{each.answer.source}</div>
               </div>
             </div>
           </div>

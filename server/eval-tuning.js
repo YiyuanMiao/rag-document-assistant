@@ -28,7 +28,7 @@ async function evalConfig(dataset, docId) {
   let hits = 0;
   const failedIds = [];
   for (const item of dataset) {
-    const retrieved = await hybridSearch(item.question, docId, TOP_K);
+    const retrieved = (await hybridSearch(item.question, docId, TOP_K)).map((r) => r.text);
     const combined = retrieved.join(" ").toLowerCase();
     const isHit = item.expectedKeywords.some((kw) => combined.includes(kw.toLowerCase()));
     if (isHit) hits++;
@@ -39,7 +39,7 @@ async function evalConfig(dataset, docId) {
 
 async function main() {
   const filePath = process.argv[2] || DEFAULT_PDF;
-  const dataset = JSON.parse(readFileSync("./golden-dataset.json", "utf-8"));
+  const dataset = JSON.parse(readFileSync(process.env.GOLDEN || "./golden-dataset.json", "utf-8"));
   await ensureIndex();
 
   console.log(`📄 ${filePath}  |  ${dataset.length} questions  |  Top-K=${TOP_K}\n`);
